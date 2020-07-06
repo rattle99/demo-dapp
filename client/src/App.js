@@ -70,7 +70,9 @@ function App() {
 
 	function setValue() {
 		const lol = async () => {
-			await contract.methods.set(500).send({ from: accounts[0] });
+			await contract.methods
+				.set(Math.round(Math.random() * 100))
+				.send({ from: accounts[0] });
 			const response = await contract.methods.get().call();
 			setStorageValue(response);
 		};
