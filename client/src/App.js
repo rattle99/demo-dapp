@@ -50,6 +50,7 @@ function App() {
 	useEffect(() => {
 		const load = async () => {
 			// Stores a given value, 5 by default.
+
 			await contract.methods.set(50).send({ from: accounts[0] });
 
 			// Get the value from the contract to prove it worked.
@@ -61,8 +62,8 @@ function App() {
 
 		if (
 			typeof web3 !== "undefined" &&
-			typeof accounts !== "undefined" &&
-			typeof contract !== "undefined"
+			typeof accounts.length > 0 &&
+			typeof contract.length > 0
 		) {
 			load();
 		}
